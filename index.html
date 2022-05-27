@@ -36,7 +36,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:18, minZoom:14
-        }).fitBounds([[46.42595313883837,13.62942059481744],[46.4499879733307,13.669597818150713]]);
+        }).fitBounds([[46.43214059623056,13.636577420534405],[46.438149304853646,13.646621726367723]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -109,7 +109,7 @@
                 lineJoin: 'bevel',
                 weight: 3.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_MangartdolpoItalianskitracks_1');
@@ -117,7 +117,7 @@
         map.getPane('pane_MangartdolpoItalianskitracks_1').style['mix-blend-mode'] = 'normal';
         var layer_MangartdolpoItalianskitracks_1 = new L.geoJson(json_MangartdolpoItalianskitracks_1, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_MangartdolpoItalianskitracks_1',
             layerName: 'layer_MangartdolpoItalianskitracks_1',
             pane: 'pane_MangartdolpoItalianskitracks_1',
@@ -178,7 +178,7 @@
                 lineJoin: 'bevel',
                 weight: 3.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_MangartgorviaItalianaSlovenskatracks_2');
@@ -186,7 +186,7 @@
         map.getPane('pane_MangartgorviaItalianaSlovenskatracks_2').style['mix-blend-mode'] = 'normal';
         var layer_MangartgorviaItalianaSlovenskatracks_2 = new L.geoJson(json_MangartgorviaItalianaSlovenskatracks_2, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_MangartgorviaItalianaSlovenskatracks_2',
             layerName: 'layer_MangartgorviaItalianaSlovenskatracks_2',
             pane: 'pane_MangartgorviaItalianaSlovenskatracks_2',
@@ -198,19 +198,13 @@
         function pop_mojeslike_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>ID</strong><br />' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <td colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Date</strong><br />' + (feature.properties['Date'] !== null ? autolinker.link(feature.properties['Date'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Path</strong><br />' + (feature.properties['Path'] !== null ? autolinker.link(feature.properties['Path'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <td colspan="2"><strong>RelPath</strong><br />' + (feature.properties['RelPath'] !== null ? autolinker.link(feature.properties['RelPath'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+		    <tr>\
+                        <td colspan="2"><strong>RelPath</strong><br /><img src="' + feature.properties['RelPath'] + '"></td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Timestamp</strong><br />' + (feature.properties['Timestamp'] !== null ? autolinker.link(feature.properties['Timestamp'].toLocaleString()) : '') + '</td>\
@@ -225,7 +219,7 @@
         function style_mojeslike_3_0() {
             return {
                 pane: 'pane_mojeslike_3',
-                radius: 3.999999999999997,
+                radius: 4.0,
                 opacity: 1,
                 color: 'rgba(128,17,25,1.0)',
                 dashArray: '',
